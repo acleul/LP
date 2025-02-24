@@ -30,14 +30,15 @@ class Processing:
         self.city = None#Variable qui contient la ville de la question de l'utilisateur
         self.df_with_cities = None
         self.établissement_mentionné = None
-        self.paths={
-                "mapping_word_path":r"data\resultats_llm_v5.csv",
-                "palmares_path":r"data\classments-hopitaux-cliniques-2024.xlsx",
-                "palmares_general_private_path":r"data\Tableaux_d'honneur_2024_PRIVE.csv",
-                "palmares_general_public_path":r"data\Tableaux_d'honneur_2024_PUBLIC.csv",
-                "coordonnees_path":r"data\fichier_hopitaux_avec_coordonnees_avec_privacitée.xlsx",
-                "history_path":r"historique\results_history.csv"
-            }
+        self.paths = {
+    "mapping_word_path": "data/resultats_llm_v5.csv",
+    "palmares_path": "data/classments-hopitaux-cliniques-2024.xlsx",
+    "palmares_general_private_path": "data/Tableaux_d'honneur_2024_PRIVE.csv",
+    "palmares_general_public_path": "data/Tableaux_d'honneur_2024_PUBLIC.csv",
+    "coordonnees_path": "data/fichier_hopitaux_avec_coordonnees_avec_privacitée.xlsx",
+    "history_path": "historique/results_history.csv"
+}
+
            
     #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
