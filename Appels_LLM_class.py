@@ -16,10 +16,10 @@ class Appels_LLM:
         self.ispublic= None#Variable qui contient le type d'établissement public/privé de la question de l'utilisateur
         self.city = None#Variable qui contient la ville de la question de l'utilisateur
         self.établissement_mentionné = None
-        self.paths={
-                "mapping_word_path":r"data\resultats_llm_v5.csv",
-                "palmares_path":r"data\classments-hopitaux-cliniques-2024.xlsx",
-                "coordonnees_path":r"data\fichier_hopitaux_avec_coordonnees_avec_privacitée.xlsx"
+        self.paths = {
+                "mapping_word_path": "data/resultats_llm_v5.csv",
+                "palmares_path": "data/classments-hopitaux-cliniques-2024.xlsx",
+                "coordonnees_path": "data/fichier_hopitaux_avec_coordonnees_avec_privacitée.xlsx"
             }
 
         self.prompt={
