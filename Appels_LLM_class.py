@@ -3,6 +3,7 @@ import re
 from langchain_community.chat_models import ChatOpenAI
 import pandas as pd
 import csv
+import streamlit as st
 
 
 
@@ -194,7 +195,7 @@ class Appels_LLM:
         self.key_words=self.format_mapping_words_csv(self.paths["mapping_word_path"])
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     def init_model(self) -> ChatOpenAI:
-        api_key = user = st.secrets["API_KEY"]
+        api_key = user = st.secrets["key"]["API_KEY"]
 
 
 
