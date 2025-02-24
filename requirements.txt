@@ -5,3 +5,4 @@ streamlit==1.37.1
 langchain_community==0.3.12
 openai==1.57.4
 openpyxl==3.1.5
+dynaconf==3.2.10
