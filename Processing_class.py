@@ -178,7 +178,9 @@ class Processing:
     ) -> pd.DataFrame:
         
         # Trouve et charge les données Excel basées uniquement sur la spécialité si on a pas de critère publique/privé
-        st.write("a t on un match",self.palmares_df["Spécialité"].str.contains(self.specialty, case=False, na=False))
+        st.write("a t on un match",self.palmares_df["Spécialité"].str.strip().str.lower().str.contains(self.specialty, na=False).sum())
+        st.write("self.specialty",self.specialty)
+        st.write("self.palmares_df",self.palmares_df.head(2))
         matching_rows = self.palmares_df[self.palmares_df["Spécialité"].str.contains(self.specialty, case=False, na=False)]
         self.lien_classement_web=[]
         self._generate_lien_classement(matching_rows)
