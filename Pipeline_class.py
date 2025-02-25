@@ -2,6 +2,7 @@ import os
 import re
 import pandas as pd
 import csv
+import streamlit as st
 from Processing_class import Processing
 from Appels_LLM_class import Appels_LLM
 
