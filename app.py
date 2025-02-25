@@ -1,6 +1,7 @@
 import streamlit as st
 import sys
 import os
+import logging
 from Pipeline_class import Pipeline
 from Appels_LLM_class import Appels_LLM
 
