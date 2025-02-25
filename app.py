@@ -83,7 +83,6 @@ class StreamlitChatbot:
         
     def check_non_french_cities(self,user_input):
         self.city = self.appel_LLM.get_city(user_input)
-        #st.write(self.city)
         if self.city == 'ville étrangère':
             self.reset_session_state()
             st.warning(
@@ -200,9 +199,6 @@ class StreamlitChatbot:
                             result =answer_instance.final_answer(prompt=st.session_state.prompt, specialty_st=v_speciality)
                         except Exception as e:
                             st.warning("En raison de problèmes d'API, le service d'assistance au palmarès des hôpitaux est momentanément indisponible, merci de réessayer plus tard")
-                    
-                        
-                        st.write(result)
                 
                         if "Geopy" in result:
                             link=[]
