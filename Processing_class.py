@@ -150,6 +150,7 @@ class Processing:
         for _, row in matching_rows.iterrows():
             sheet_name = row.iloc[2]
             category = row["Catégorie"]
+            st.write("sheet name:",sheet_name)
             df_sheet = pd.read_excel(self.paths["palmares_path"] , sheet_name=sheet_name)
             df_sheet["Catégorie"] = category
             dfs.append(df_sheet)
