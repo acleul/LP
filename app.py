@@ -172,7 +172,12 @@ class StreamlitChatbot:
                             answer_instance = Pipeline()
                             res, link = answer_instance.final_answer(prompt=st.session_state.prompt, specialty_st=selected_option)
                             if res == 'établissement pas dans ce classement':
-                                res= f"Cet hôpital n'est pas présent pour la spécialité {selected_option}"                  
+                                res= f"Cet hôpital n'est pas présent pour la spécialité {selected_option}" 
+                            if result == "Dû à une surutilisation de l'API de Geopy, le service de calcul des distances est indisponible pour le moment, merci de réessayer plus tard ou de recommencer avec une question sans localisation spécifique":
+                                res = result
+                                link=[]
+                            else:
+                                res, link = result
                             
                         for links in link:
                             res=res+f"<br>[🔗Page du classement]({links})"
@@ -187,7 +192,13 @@ class StreamlitChatbot:
                         answer_instance = Pipeline()
                         result =answer_instance.final_answer(prompt=st.session_state.prompt, specialty_st=v_speciality)
                         st.write(result)
-                        res, link = result
+                
+                        if result == "Dû à une surutilisation de l'API de Geopy, le service de calcul des distances est indisponible pour le moment, merci de réessayer plus tard ou de recommencer avec une question sans localisation spécifique":
+                            res = result
+                            link=[]
+                        else:
+                            res, link = result
+                        
                     for links in link:
                         res=res+f"<br>[🔗Page du classement]({links})"
                     st.session_state.conversation.append((st.session_state.prompt, res))
