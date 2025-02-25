@@ -185,8 +185,9 @@ class StreamlitChatbot:
                 else:
                     with st.spinner('Chargement'):
                         answer_instance = Pipeline()
-                        st.write(answer_instance.final_answer(prompt=st.session_state.prompt, specialty_st=v_speciality))
-                        #res, link = answer_instance.final_answer(prompt=st.session_state.prompt, specialty_st=v_speciality)
+                        result =answer_instance.final_answer(prompt=st.session_state.prompt, specialty_st=v_speciality)
+                        print(result)
+                        res, link = result
                     for links in link:
                         res=res+f"<br>[🔗Page du classement]({links})"
                     st.session_state.conversation.append((st.session_state.prompt, res))
