@@ -171,7 +171,10 @@ class StreamlitChatbot:
                         with st.spinner('Chargement'):
                             answer_instance = Pipeline()
                             
-                            result = answer_instance.final_answer(prompt=st.session_state.prompt, specialty_st=selected_option)
+                            try:
+                                result = answer_instance.final_answer(prompt=st.session_state.prompt, specialty_st=selected_option)
+                            except Exception as e:
+                                st.warning("En raison de problèmes d'API, le service d'assistance au palmarès des hôpitaux est momentanément indisponible, merci de réessayer plus tard")
                             
                             if "Geopy" in result:
                                 link=[]
@@ -192,7 +195,13 @@ class StreamlitChatbot:
                 else:
                     with st.spinner('Chargement'):
                         answer_instance = Pipeline()
-                        result =answer_instance.final_answer(prompt=st.session_state.prompt, specialty_st=v_speciality)
+                        
+                        try:
+                            result =answer_instance.final_answer(prompt=st.session_state.prompt, specialty_st=v_speciality)
+                        except Exception as e:
+                            st.warning("En raison de problèmes d'API, le service d'assistance au palmarès des hôpitaux est momentanément indisponible, merci de réessayer plus tard")
+                    
+                        
                         st.write(result)
                 
                         if "Geopy" in result:
