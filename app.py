@@ -175,7 +175,7 @@ class StreamlitChatbot:
                             try:
                                 result = answer_instance.final_answer(prompt=st.session_state.prompt, specialty_st=selected_option)
                             except Exception as e:
-                                st.warning("En raison de problèmes d'API, le service d'assistance au palmarès des hôpitaux est momentanément indisponible, merci de réessayer dans quelques instants.")
+                                st.warning("En raison de problèmes d'API:{e}, le service d'assistance au palmarès des hôpitaux est momentanément indisponible, merci de réessayer dans quelques instants.")
                                 st.stop()
                             
                             if "Geopy" in result:
@@ -201,7 +201,7 @@ class StreamlitChatbot:
                         try:
                             result =answer_instance.final_answer(prompt=st.session_state.prompt, specialty_st=v_speciality)
                         except Exception as e:
-                            st.warning("En raison de problèmes d'API, le service d'assistance au palmarès des hôpitaux est momentanément indisponible, merci de réessayer dans quelques instants")
+                            st.warning("En raison de problèmes d'API:{e}, le service d'assistance au palmarès des hôpitaux est momentanément indisponible, merci de réessayer dans quelques instants")
                             st.stop()
                 
                         if "Geopy" in result:
