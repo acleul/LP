@@ -100,6 +100,8 @@ class StreamlitChatbot:
     def run(self):
         st.title("🏥Assistant Hôpitaux")
         st.write("Posez votre question ci-dessous.")
+        logging.info("info de log")
+        print("info de print")
          
         col1, col2, col3 = st.columns(3)
         # Display the questions inside containers
