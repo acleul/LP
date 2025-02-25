@@ -148,6 +148,7 @@ class Processing:
     ) -> pd.DataFrame:
         #Charge les feuilles Excel correspondantes aux matching_rows du Palmarès pour une question qui mentionne une pathologie
         excel_path = self.paths["palmares_path"] 
+        st.write("matching_rows",matching_rows)
 
         dfs = []
         for _, row in matching_rows.iterrows():
