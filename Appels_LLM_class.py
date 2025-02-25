@@ -273,10 +273,12 @@ class Appels_LLM:
         
 
         if self.specialty.startswith("plusieurs correspondances:"):
+            if "cancer" in self.specialty.lower():
+                return self.specialty
             def get_specialty_keywords(message, specialties):
                 for category, keywords in specialties.items():
                     if any(keyword.lower() in message.lower() for keyword in keywords):
-                        return "plusieurs correspondances:"+f"{','.join(keywords)}"
+                        return "plusieurs correspondances:"+f"{','.join(keywords)}"                    
             liste_spe= get_specialty_keywords(self.specialty, specialties)
             self.specialty=self.format_correspondance_list(liste_spe)
             return self.specialty
