@@ -57,6 +57,8 @@ class Processing:
         self.établissement_mentionné = self.appel_LLM.établissement_mentionné
         self.etablissement_name=self.appel_LLM.etablissement_name
         self.ispublic=self.appel_LLM.ispublic
+        import Streamlit
+        st.write("self.ispublic:{self.ispublic},self.city:{self.city},self.établissement_mentionné:{self.établissement_mentionné},self.etablissement_name:{self.etablissement_name},self.specialty:{self.specialty}")
         return None
 
 
