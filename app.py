@@ -170,14 +170,16 @@ class StreamlitChatbot:
                     if selected_option is not None:
                         with st.spinner('Chargement'):
                             answer_instance = Pipeline()
-                            res, link = answer_instance.final_answer(prompt=st.session_state.prompt, specialty_st=selected_option)
-                            if res == 'établissement pas dans ce classement':
-                                res= f"Cet hôpital n'est pas présent pour la spécialité {selected_option}" 
-                            if result == "Dû à une surutilisation de l'API de Geopy, le service de calcul des distances est indisponible pour le moment, merci de réessayer plus tard ou de recommencer avec une question sans localisation spécifique":
-                                res = result
+                            
+                            result = answer_instance.final_answer(prompt=st.session_state.prompt, specialty_st=selected_option)
+                            
+                            if "Geopy" in result:
                                 link=[]
+                                res=result
                             else:
                                 res, link = result
+                            if res == 'établissement pas dans ce classement':
+                                res= f"Cet hôpital n'est pas présent pour la spécialité {selected_option}" 
                             
                         for links in link:
                             res=res+f"<br>[🔗Page du classement]({links})"
@@ -193,9 +195,9 @@ class StreamlitChatbot:
                         result =answer_instance.final_answer(prompt=st.session_state.prompt, specialty_st=v_speciality)
                         st.write(result)
                 
-                        if result == "Dû à une surutilisation de l'API de Geopy, le service de calcul des distances est indisponible pour le moment, merci de réessayer plus tard ou de recommencer avec une question sans localisation spécifique":
-                            res = result
+                        if "Geopy" in result:
                             link=[]
+                            res=result
                         else:
                             res, link = result
                         
