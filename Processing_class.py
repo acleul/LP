@@ -178,12 +178,12 @@ class Processing:
     ) -> pd.DataFrame:
         
         # Trouve et charge les données Excel basées uniquement sur la spécialité si on a pas de critère publique/privé
-        st.write("a t on un match",self.palmares_df["Spécialité"].str.strip().str.lower().str.contains(self.specialty, na=False).sum())
+        st.write("a t on un match",self.palmares_df["Spécialité"].str.strip().str.lower().str.contains(self.specialty.strip(), na=False).sum())
         st.write("self.specialty",'a'+self.specialty+'a')
         st.write("self.palmares_df",'a'+self.palmares_df.at[23, 'Spécialité']+'a')
         st.write("self.specialty len",len(self.specialty))
         st.write("self.palmares_df len",len(self.palmares_df.at[23, 'Spécialité']))
-        matching_rows = self.palmares_df[self.palmares_df["Spécialité"].str.contains(self.specialty, case=False, na=False)]
+        matching_rows = self.palmares_df[self.palmares_df["Spécialité"].str.contains(self.specialty.strip(), case=False, na=False)]
         self.lien_classement_web=[]
         self._generate_lien_classement(matching_rows)
         self.specialty_df = self.load_excel_sheets(matching_rows)
@@ -205,7 +205,7 @@ class Processing:
         if self.ispublic == 'aucune correspondance':
             return self.find_excel_sheet_with_speciality(prompt)
 
-        matching_rows = self.palmares_df[self.palmares_df["Spécialité"].str.contains(specialty, case=False, na=False)]
+        matching_rows = self.palmares_df[self.palmares_df["Spécialité"].str.contains(specialty.strip(), case=False, na=False)]
         matching_rows = matching_rows[matching_rows["Catégorie"].str.contains(self.ispublic, case=False, na=False)]
         self._generate_lien_classement(matching_rows)
         self.specialty_df = self.load_excel_sheets(matching_rows)
