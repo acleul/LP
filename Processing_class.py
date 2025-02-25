@@ -61,7 +61,7 @@ class Processing:
             self.city='aucune correspondance'
         self.etablissement_name=self.appel_LLM.etablissement_name
         self.ispublic=self.appel_LLM.ispublic
-        #st.write(f"self.ispublic:{self.ispublic},self.city:{self.city},self.établissement_mentionné:{self.établissement_mentionné},self.etablissement_name:{self.etablissement_name},self.specialty:{self.specialty}")
+        st.write(f"self.ispublic:{self.ispublic},self.city:{self.city},self.établissement_mentionné:{self.établissement_mentionné},self.etablissement_name:{self.etablissement_name},self.specialty:{self.specialty}")
         return None
 
 
