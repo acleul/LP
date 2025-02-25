@@ -52,14 +52,13 @@ class Processing:
             self.palmares_df=pd.read_excel(self.paths["palmares_path"] , sheet_name="Palmarès")
             self.specialty=self.appel_LLM.specialty
         self.palmares_df=pd.read_excel(self.paths["palmares_path"] , sheet_name="Palmarès")
-        
         self.appel_LLM.is_public_or_private(prompt)
         self.établissement_mentionné = self.appel_LLM.établissement_mentionné
         if self.établissement_mentionné==False:
             self.appel_LLM.get_city(prompt)
             self.city=self.appel_LLM.city
         else:
-            self.city=self.appel_LLM.city
+            self.city='aucune correspondance'
         self.etablissement_name=self.appel_LLM.etablissement_name
         self.ispublic=self.appel_LLM.ispublic
         st.write(f"self.ispublic:{self.ispublic},self.city:{self.city},self.établissement_mentionné:{self.établissement_mentionné},self.etablissement_name:{self.etablissement_name},self.specialty:{self.specialty}")
