@@ -58,7 +58,7 @@ class Pipeline:
         self.get_infos_pipeline(prompt)
         if self.answer.classement_non_trouve:
                     return self.df_gen
-        st.write("self.answer.city",self.answer.city)
+        #st.write("self.answer.city",self.answer.city)
         if self.answer.city == 'aucune correspondance':
             self.no_city= True
             return self.df_gen
