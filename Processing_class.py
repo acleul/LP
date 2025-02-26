@@ -154,10 +154,10 @@ class Processing:
         for _, row in matching_rows.iterrows():
             sheet_name = row.iloc[2]
             category = row["Catégorie"]
-            st.write("sheet name:",sheet_name)
+            #st.write("sheet name:",sheet_name)
             
             df_sheet = pd.read_excel(self.paths["palmares_path"] , sheet_name=sheet_name)
-            st.write("sheet size:",df_sheet.shape)
+            #st.write("sheet size:",df_sheet.shape)
             df_sheet["Catégorie"] = category
             dfs.append(df_sheet)
 
@@ -178,11 +178,6 @@ class Processing:
     ) -> pd.DataFrame:
         
         # Trouve et charge les données Excel basées uniquement sur la spécialité si on a pas de critère publique/privé
-        st.write("a t on un match",self.palmares_df["Spécialité"].str.strip().str.lower().str.contains(self.specialty.strip(), na=False).sum())
-        st.write("self.specialty",'a'+self.specialty+'a')
-        st.write("self.palmares_df",'a'+self.palmares_df.at[23, 'Spécialité']+'a')
-        st.write("self.specialty len",len(self.specialty))
-        st.write("self.palmares_df len",len(self.palmares_df.at[23, 'Spécialité']))
         matching_rows = self.palmares_df[self.palmares_df["Spécialité"].str.contains(self.specialty.strip(), case=False, na=False)]
         self.lien_classement_web=[]
         self._generate_lien_classement(matching_rows)
