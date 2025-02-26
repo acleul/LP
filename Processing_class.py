@@ -61,7 +61,7 @@ class Processing:
             self.city='aucune correspondance'
         self.etablissement_name=self.appel_LLM.etablissement_name
         self.ispublic=self.appel_LLM.ispublic
-        st.write(f"self.ispublic:{self.ispublic},self.city:{self.city},self.établissement_mentionné:{self.établissement_mentionné},self.etablissement_name:{self.etablissement_name},self.specialty:{self.specialty}")
+        #st.write(f"self.ispublic:{self.ispublic},self.city:{self.city},self.établissement_mentionné:{self.établissement_mentionné},self.etablissement_name:{self.etablissement_name},self.specialty:{self.specialty}")
         return None
 
 
@@ -148,7 +148,7 @@ class Processing:
     ) -> pd.DataFrame:
         #Charge les feuilles Excel correspondantes aux matching_rows du Palmarès pour une question qui mentionne une pathologie
         excel_path = self.paths["palmares_path"] 
-        st.write("matching_rows",matching_rows)
+        #st.write("matching_rows",matching_rows)
 
         dfs = []
         for _, row in matching_rows.iterrows():
